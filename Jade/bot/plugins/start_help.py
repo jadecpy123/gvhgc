@@ -71,8 +71,8 @@ async def start(b, m):
             await b.send_message(
                 chat_id=m.chat.id,
                 text="<i>𝓢𝓸𝓶𝓮𝓽𝓱𝓲𝓷𝓰 𝔀𝓮𝓷𝓽 𝔀𝓻𝓸𝓷𝓰</i>"
-                
-                disable_web_page_preview=True)
+                disable_web_page_preview=True
+            )
             return
     await StreamBot.send_photo(
         chat_id=m.chat.id,
