@@ -129,7 +129,6 @@ async def help_handler(bot, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [InlineKeyboardButton("💁‍♂️ DEV", url="https://telegram.me/dev_shadow")],
-                [InlineKeyboardButton("💥 Source Code", txt="Contact Dev @dev_shadow")]
             ]
         )
     )
