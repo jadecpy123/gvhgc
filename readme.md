@@ -71,4 +71,6 @@
 
 <details>
   <summary><b>How to Use :</b></summary>
+  https://deploy.cyclic.sh/eludadev/telegram-bot
+  
 
