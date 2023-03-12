@@ -95,65 +95,11 @@ async def private_receive_handler(c: Client, m: Message):
                 disable_web_page_preview=True)
             return
     try:
-        log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
-        online_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
-        msg_text ="""<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>\n\n<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>\n\n<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>\n\n<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>\n\n<b> 🖥WATCH  :</b> <i>{}</i>\n\n<b>🚸 Nᴏᴛᴇ : LINK WON'T EXPIRE TILL I DELETE</b>"""
-
-        await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True,  quote=True)
-        await m.reply_text(
-            text=f"https://playdisk.xyz/api?api=07f8d7c16a18b62808b6c0b41e69065d17d1de93&url={stream_link,online_link}",
-            quote=True,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("STREAM 🖥", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('DOWNLOAD 📥', url=online_link)]]) #Download Link
-        )
-    except FloodWait as e:
-        print(f"Sleeping for {str(e.x)}s")
-        await asyncio.sleep(e.x)
-        await c.send_message(chat_id=Var.BIN_CHANNEL, text=f"Gᴏᴛ FʟᴏᴏᴅWᴀɪᴛ ᴏғ {str(e.x)}s from [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n**𝚄𝚜𝚎𝚛 𝙸𝙳 :** `{str(m.from_user.id)}`", disable_web_page_preview=True)
-
-
-@StreamBot.on_message(filters.channel & ~filters.group & (filters.document | filters.video | filters.photo)  & ~filters.forwarded, group=-1)
-async def channel_receive_handler(bot, broadcast):
-    if MY_PASS:
-        check_pass = await pass_db.get_user_pass(broadcast.chat.id)
-        if check_pass == None:
-            await broadcast.reply_text("Login first using /login cmd \n don\'t know the pass? request it from developer!")
-            return
-        if check_pass != MY_PASS:
-            await broadcast.reply_text("Wrong password, login again")
-            await pass_db.delete_user(broadcast.chat.id)
-            
-            return
-    if int(broadcast.chat.id) in Var.BANNED_CHANNELS:
-        await bot.leave_chat(broadcast.chat.id)
-        
-        return
-    try:
-        log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
-        online_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
-        await log_msg.reply_text(
-            text=f"**Channel Name:** `{broadcast.chat.title}`\n**CHANNEL ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream_link}",
-            quote=True
-        )
-        await bot.edit_message_reply_markup(
-            chat_id=broadcast.chat.id,
-            message_id=broadcast.id,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [InlineKeyboardButton("🖥STREAM ", url=stream_link),
-                     InlineKeyboardButton('Dᴏᴡɴʟᴏᴀᴅ📥', url=online_link)] 
-                ]
-            )
-        )
-    except FloodWait as w:
-        print(f"Sleeping for {str(w.x)}s")
-        await asyncio.sleep(w.x)
-        await bot.send_message(chat_id=Var.BIN_CHANNEL,
-                             text=f"GOT FLOODWAIT OF {str(w.x)}s FROM {broadcast.chat.title}\n\n**CHANNEL ID:** `{str(broadcast.chat.id)}`",
-                             disable_web_page_preview=True)
-    except Exception as e:
-        await bot.send_message(chat_id=Var.BIN_CHANNEL, text=f"**#ERROR_TRACKEBACK:** `{e}`", disable_web_page_preview=True)
-        print(f"Cᴀɴ'ᴛ Eᴅɪᴛ Bʀᴏᴀᴅᴄᴀsᴛ Mᴇssᴀɢᴇ!\nEʀʀᴏʀ:  **Give me edit permission in updates and bin Channel!{e}**")
+         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+    stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
+    stream_links = f"https://1.url2go.in/intresting"
+    await m.reply_text(
+        text=f"https://playdisk.xyz/api?api=07f8d7c16a18b62808b6c0b41e69065d17d1de93&url={stream_link}",
+        quote=True,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Learn something interesting 🤔', url=stream_links)]])
+    )
