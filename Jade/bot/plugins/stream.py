@@ -68,7 +68,6 @@ async def private_receive_handler(c: Client, m: Message):
                 await c.send_message(
                     chat_id=m.chat.id,
                     text="You are banned!\n\n  **Cᴏɴᴛᴀᴄᴛ Dᴇᴠᴇʟᴏᴘᴇʀ [Adarsh Goel](https://telegram.me/dev_shadow) ʜᴇ Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
-                    
                     disable_web_page_preview=True
                 )
                 return 
@@ -91,15 +90,14 @@ async def private_receive_handler(c: Client, m: Message):
             await c.send_message(
                 chat_id=m.chat.id,
                 text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ ʙᴏss** [Adarsh Goel](https://telegram.me/dev_shadow)",
-                
-                disable_web_page_preview=True)
+                disable_web_page_preview=True
+            )
             return
     try:
-         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-   stream_link = Var.URL + str(log_msg.message_id) + '/' + quote_plus(file_name) if (file_name) else ''
-    stream_links = f"https://1.url2go.in/intresting"
-    await m.reply_text(
-        text=f"https://playdisk.xyz/api?api=07f8d7c16a18b62808b6c0b41e69065d17d1de93&url={stream_link}",
-        quote=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Learn something interesting 🤔', url=stream_links)]])
-    )
+        log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        stream_link = Var.URL + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
+        stream_links = f"https://1.url2go.in/intresting"
+        await m.reply_text(
+            text=f"https://playdisk.xyz/api?api=07f8d7c16a18b62808b6c0b41e69065d17d1de93&url={stream_link}",
+            quote=True,
+            reply_markup
